@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import Pizza from "../models/pizza.model";
-import ItemPizza from "../sections/ItemPizza";
 
 
 const HomePage = () => {
@@ -10,12 +9,13 @@ const HomePage = () => {
         { id: 2, title: 'Pizza chay', decsription: 'Pizza làm bằng rau cực ngon' }
         ,])
 
-    const [person, setPerson] = useState<Pizza>(
-        { id: 1, title: 'Van', decsription: 'Student' }
-    );
 
-    const handleChangePerson = (data: Pizza) => {
-        setPerson(data);
+    const handleRemovePizza = (id: number) => {
+        const indexPizzas = pizzas.findIndex(pizza => pizza.id === id);
+        // Clone array mới vào biến newPizzas
+        let newPizzas = [...pizzas];
+        newPizzas.splice(indexPizzas, 1);
+        setPizzas(newPizzas);
     }
 
     return (
@@ -23,10 +23,9 @@ const HomePage = () => {
             <div className="wrapper-card-items">
                 {
                     pizzas.map((pizza, index) => (
-                        <CardPizza key={index} title={pizza.title} decsription={pizza.decsription} />
+                        <CardPizza key={index} id={pizza.id} title={pizza.title} decsription={pizza.decsription} handleRemovePizza={handleRemovePizza} />
                     ))
                 }
-                <ItemPizza title={person.title} decsription={person.decsription} handleChangePerson={handleChangePerson} />
             </div>
         </div>
     );
