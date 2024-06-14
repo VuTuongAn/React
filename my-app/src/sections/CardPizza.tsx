@@ -1,9 +1,7 @@
 import LogoPizza from '../assets/pizza.png';
+import Pizza from '../models/pizza.model';
 
-type Props = {
-    title?: string;
-    decsription?: string;
-}
+type Props = Pizza;
 const CardPizza = ({ title, decsription }: Props) => {
     return (
         <div className="card-items">
