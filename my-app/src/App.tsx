@@ -1,23 +1,13 @@
-import React from 'react';
-import './App.css';
+import Footer from './layouts/Footer';
+import Header from './layouts/Header';
+import HomePage from './pages/HomPage';
 
 function App() {
-  const nameObj = {
-    name: 'Anvu',
-    age: 25,
-    email: 'vuan@gmail.com'
-  }
-  const [name, setName] = React.useState('Anvu');
-  const handleChangeName = () => {
-    setName('Name anvu new');
-  }
   return (
     <div className="App">
-      <div>{nameObj.name}</div>
-      <div>{nameObj.age}</div>
-      <div>{nameObj.email}</div>
-      <div>{name}</div>
-      <button onClick={handleChangeName}>Change Name</button>
+      <Header />
+      <HomePage />
+      <Footer />
     </div>
   );
 }
