@@ -14,6 +14,10 @@ const HomePage = () => {
         { id: 1, title: 'Van', decsription: 'Student' }
     );
 
+    const handleChangePerson = (data: Pizza) => {
+        setPerson(data);
+    }
+
     return (
         <div style={{ height: 'calc(100vh - 309px)', padding: '4rem 4rem', overflowY: 'auto' }}>
             <div className="wrapper-card-items">
@@ -22,7 +26,7 @@ const HomePage = () => {
                         <CardPizza key={index} title={pizza.title} decsription={pizza.decsription} />
                     ))
                 }
-                <ItemPizza title={person.title} decsription={person.decsription} />
+                <ItemPizza title={person.title} decsription={person.decsription} handleChangePerson={handleChangePerson} />
             </div>
         </div>
     );
