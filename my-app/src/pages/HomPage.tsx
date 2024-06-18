@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import Pizza from "../models/pizza.model";
-import CountPizza from "../sections/CountPizza";
 import ButtonField from "../components/ButtonFiled";
+import TextFiled from "../components/TextFiled";
 
 
 const HomePage = () => {
     const [pizzas, setPizza] = useState<Pizza[]>([])
-
-    const [count, setCount] = useState(0);
-
-    const [iscount, setIsCount] = useState(false);
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -20,6 +16,7 @@ const HomePage = () => {
 
     return (
         <div style={{ height: 'calc(100vh - 309px)', padding: '4rem 4rem', overflowY: 'auto' }}>
+            <TextFiled placeholder="Search pizza" width="250px" />
             <div className="wrapper-card-items">
                 {
                     pizzas.map((item, index) => (
