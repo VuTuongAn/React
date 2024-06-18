@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import Pizza from "../models/pizza.model";
+import CountPizza from "../sections/CountPizza";
 
 
 const HomePage = () => {
-    const [pizzas, setPizzas] = useState<Pizza[]>([
+    const [pizzas] = useState<Pizza[]>([
         { id: 1, title: 'Pizza thịt', decsription: 'Pizza làm bằng thịt cực ngon' },
         { id: 2, title: 'Pizza chay', decsription: 'Pizza làm bằng rau cực ngon' }
         ,])
 
     const [count, setCount] = useState(0);
 
+    const [iscount, setIsCount] = useState(false);
 
-    useEffect(() => {
-        setPizzas([...pizzas, { id: 3, title: 'Pizza com', decsription: 'Pizza làm bằng com' }]);
-    }, [count]);
     return (
         <div style={{ height: 'calc(100vh - 309px)', padding: '4rem 4rem', overflowY: 'auto' }}>
             <div className="wrapper-card-items">
@@ -24,7 +23,10 @@ const HomePage = () => {
                     ))
                 }
             </div>
-            <button onClick={() => setCount(count + 1)}>+1</button>
+            <button onClick={() => setIsCount(true)}>Open count</button>
+            <button onClick={() => setIsCount(false)}>Close count</button>
+            <div>{count}</div>
+            {iscount && <CountPizza count={count} setCount={(count) => setCount(count)} />}
         </div>
     );
 }
