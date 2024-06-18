@@ -1,6 +1,6 @@
 type Pizza = {
     id?: number;
-    title?: string;
-    decsription?: string;
+    name?: string;
+    phone?: string;
 }
 export default Pizza;
