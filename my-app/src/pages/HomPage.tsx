@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import Pizza from "../models/pizza.model";
 import CountPizza from "../sections/CountPizza";
+import ButtonField from "../components/ButtonFiled";
 
 
 const HomePage = () => {
@@ -26,11 +27,9 @@ const HomePage = () => {
                     ))
                 }
             </div>
-            <button onClick={() => setIsCount(true)}>Open count</button>
-            <button onClick={() => setIsCount(false)}>Close count</button>
-            <div>{count}</div>
-            {/* Nếu mà iscount == true thì component CountPizza sẽ được render ra */}
-            {iscount && <CountPizza count={count} setCount={(count) => setCount(count)} />}
+            <div style={{ display: "flex", justifyContent: "center", width: '100%' }}>
+                <ButtonField>Show more</ButtonField>
+            </div>
         </div>
     );
 }
